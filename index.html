@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yonatan Amaru - AI/ML Engineer</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             font-family: Arial, sans-serif;
             background-color: black;
             color: white;
             line-height: 1.6;
-            margin: 0;
-            padding: 0;
         }
         .container {
             width: 80%;
@@ -20,98 +23,103 @@
             padding: 20px;
         }
         header {
-            background: #333;
-            color: #fff;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #0099ff 3px solid;
-        }
-        header h1 {
-            margin: 0;
-            text-align: center;
-            padding-bottom: 10px;
-        }
-        .content {
-            margin-top: 20px;
-        }
-        .section {
-            margin-bottom: 30px;
-        }
-        .contact-form {
-            background: #333;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
             padding: 20px;
-            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+        }
+        nav {
+            float: right;
+        }
+        nav ul {
+            list-style: none;
+        }
+        nav ul li {
+            display: inline;
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 0;
+        }
+        h1, h2 {
+            margin-bottom: 20px;
         }
         .contact-form input, .contact-form textarea {
             width: 100%;
             padding: 10px;
             margin-bottom: 10px;
+            background-color: #333;
             border: none;
-            border-radius: 3px;
+            color: white;
         }
         .contact-form button {
-            background: #0099ff;
-            color: #fff;
+            background-color: #0099ff;
+            color: white;
             padding: 10px 20px;
             border: none;
-            border-radius: 3px;
             cursor: pointer;
         }
-        .feed {
-            background: #333;
+        .project {
+            margin-bottom: 30px;
             padding: 20px;
+            background-color: #111;
             border-radius: 5px;
-        }
-        .feed-item {
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #444;
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1>Yonatan Amaru</h1>
-            <p>AI/ML Engineer | San Francisco, USA</p>
-        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <div class="container content">
-        <section class="section">
-            <h2>About Me</h2>
-            <p>AI/ML Engineer with 3+ years of experience specializing in Detection, Multimodality, and NLP. Passionate about applying Machine Learning to real-world problems.</p>
-        </section>
+    <section id="about" class="container">
+        <h1>Yonatan Amaru</h1>
+        <h2>AI/ML Engineer | San Francisco, USA</h2>
+        <p>AI/ML Engineer with 3+ years of experience specializing in Detection, Multimodality, and NLP. Passionate about applying Machine Learning to real-world problems.</p>
+    </section>
 
-        <section class="section">
-            <h2>Contact Me</h2>
-            <div class="contact-form">
-                <form>
-                    <input type="text" placeholder="Name" required>
-                    <input type="email" placeholder="Email" required>
-                    <textarea placeholder="Message" required></textarea>
-                    <button type="submit">Send</button>
-                </form>
-            </div>
-        </section>
+    <section id="projects" class="container">
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>RAPID</h3>
+            <p>A novel end-to-end Deep Learning multimodal method for robust detection, combining NLP with network analysis.</p>
+        </div>
+        <div class="project">
+            <h3>LLM-based Cybersecurity Agent</h3>
+            <p>Developed and fine-tuned domain-specific Large Language Models for enhancing APT detection and response capabilities.</p>
+        </div>
+        <div class="project">
+            <h3>ML Optimization for Parallel Environments</h3>
+            <p>Implemented performance analysis and tuning for ML models, focusing on latency reduction and throughput improvement in distributed clusters.</p>
+        </div>
+    </section>
 
-        <section class="section">
-            <h2>Latest Updates</h2>
-            <div class="feed">
-                <div class="feed-item">
-                    <h3>Project: RAPID</h3>
-                    <p>Developed a novel end-to-end Deep Learning multimodal method for robust detection.</p>
-                </div>
-                <div class="feed-item">
-                    <h3>Interest: LLMs in Cybersecurity</h3>
-                    <p>Exploring the application of Large Language Models for enhancing APT detection and response capabilities.</p>
-                </div>
-                <div class="feed-item">
-                    <h3>Blog Post: Optimizing ML for Parallel Environments</h3>
-                    <p>Sharing insights on improving performance and scalability of Machine Learning models.</p>
-                </div>
-            </div>
-        </section>
-    </div>
+    <section id="contact" class="container">
+        <h2>Contact Me</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
 </body>
 </html>
