@@ -77,6 +77,22 @@
             background-color: #111;
             border-radius: 5px;
         }
+        .profile-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .profile-picture {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #0099ff;
+        }
+        .profile-info {
+            flex: 1;
+        }
     </style>
 </head>
 <body>
@@ -91,9 +107,14 @@
     </header>
 
     <section id="about" class="container">
-        <h1>Yonatan Amaru</h1>
-        <h2>AI/ML Engineer | San Francisco, USA</h2>
-        <p>AI/ML Engineer with 3+ years of experience specializing in Detection, Multimodality, and NLP. Passionate about applying Machine Learning to real-world problems.</p>
+        <div class="profile-container">
+            <img src="/api/placeholder/200/200" alt="Yonatan Amaru" class="profile-picture">
+            <div class="profile-info">
+                <h1>Yonatan Amaru</h1>
+                <h2>AI/ML Engineer | San Francisco, USA</h2>
+                <p>AI/ML Engineer with 3+ years of experience specializing in Detection, Multimodality, and NLP. Passionate about applying Machine Learning to real-world problems.</p>
+            </div>
+        </div>
     </section>
 
     <section id="projects" class="container">
