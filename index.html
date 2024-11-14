@@ -4,173 +4,246 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yonatan Amaru - AI/ML Engineer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #0099ff;
+            --bg-color: #0a0a0a;
+            --text-color: #ffffff;
+            --card-bg: #1a1a1a;
+            --hover-color: #1e1e1e;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: black;
-            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             line-height: 1.6;
         }
+
         .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
+
         header {
+            padding: 20px 0;
             position: fixed;
-            top: 0;
-            left: 0;
             width: 100%;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.8);
+            top: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
             z-index: 1000;
         }
+
         nav {
-            float: right;
+            display: flex;
+            justify-content: flex-end;
+            padding: 0 20px;
         }
-        nav ul {
-            list-style: none;
-        }
-        nav ul li {
-            display: inline;
-            margin-left: 20px;
-        }
-        nav ul li a {
-            color: white;
+
+        nav a {
+            color: var(--text-color);
             text-decoration: none;
-            font-size: 18px;
+            margin-left: 30px;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
         }
-        section {
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 60px 0;
+            align-items: center;
+            padding: 80px 20px;
         }
-        h1, h2 {
-            margin-bottom: 20px;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            background-color: #333;
-            border: none;
-            color: white;
-        }
-        .contact-form button {
-            background-color: #0099ff;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-        }
-        .project {
-            margin-bottom: 30px;
-            padding: 20px;
-            background-color: #111;
-            border-radius: 5px;
-        }
+
         .profile-container {
             display: flex;
+            gap: 40px;
             align-items: center;
-            gap: 30px;
-            margin-bottom: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
-        .profile-picture-container {
+
+        .profile-image {
             width: 200px;
             height: 200px;
             border-radius: 50%;
+            border: 3px solid var(--primary-color);
             overflow: hidden;
-            border: 3px solid #0099ff;
+            flex-shrink: 0;
         }
-        .profile-picture {
+
+        .profile-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 5%; 
+            object-position: center;
         }
-        .profile-info {
+
+        .profile-content {
             flex: 1;
         }
-        .social-icons {
-            margin-top: 20px;
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
         }
-        .social-icons a {
-            color: #0099ff;
-            font-size: 24px;
-            margin-right: 15px;
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #888;
+        }
+
+        .projects {
+            padding: 80px 0;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            background-color: var(--hover-color);
+        }
+
+        .project-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .links {
+            margin-top: 30px;
+        }
+
+        .links a {
+            color: var(--primary-color);
             text-decoration: none;
-            transition: color 0.3s ease;
+            margin-right: 20px;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
         }
-        .social-icons a:hover {
-            color: #ffffff;
-            
+
+        .links a:hover {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .profile-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            nav a {
+                margin: 0 15px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
         </nav>
     </header>
 
-    <section id="about" class="container">
-        <div class="profile-container">
-            <div class="profile-picture-container">
-                <img src="profile_picture.jpeg" alt="Yonatan Amaru" class="profile-picture">
-            </div>
-            <div class="profile-info">
-                <h1>Yonatan Amaru</h1>
-                <h3>AI/ML Engineer | San Francisco, USA</h3>
-                <p>Hi! I am a AI/ML Researcher/Engineer with 3+ years of experience specializing in Detection, Multimodality, and NLP. Passionate about applying Machine Learning to real-world problems.</p>
-                <div class="social-icons">
-                    <a href="https://linkedin.com/in/yonatan-amaru" target="_blank">LinkedIn</a>
-                    <a href="https://github.com/amaruy" target="_blank">GitHub</a>
+    <section id="about" class="hero">
+        <div class="container">
+            <div class="profile-container animate__animated animate__fadeIn">
+                <div class="profile-image">
+                    <img src="/api/placeholder/200/200" alt="Yonatan Amaru">
                 </div>
+                <div class="profile-content">
+                    <h1>Yonatan Amaru</h1>
+                    <h2>AI/ML Engineer | San Francisco</h2>
+                    <p>Hi! I'm an AI/ML Engineer with 3+ years of experience specializing in Detection, Multimodality, and NLP. I'm passionate about building ML systems that solve real-world problems.</p>
+                    <p style="margin-top: 15px">Currently focused on developing novel approaches for security-focused ML systems and exploring multi-agent communication mechanisms.</p>
+                    <div class="links">
+                        <a href="https://linkedin.com/in/yonatan-amaru" target="_blank">LinkedIn</a>
+                        <a href="https://github.com/amaruy" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="projects" class="container">
-        <h2>Projects</h2>
-        <div class="project">
-            <h3>RAPID</h3>
-            <p>A novel deep learning method for detecting and investigating Advanced Persistent Threats (APTs). RAPID uses context-aware anomaly detection and alert tracing to adapt to changing system behavior, significantly reducing false positives while providing detailed insights for security teams.</p>
-            <p><a href="https://arxiv.org/pdf/2406.05362" target="_blank">Read the paper</a> | <a href="https://github.com/amaruy/rapid.git" target="_blank">View the repository</a></p>
-        </div>
-        <div class="project">
-            <h3>LLM-based Cybersecurity Agent (Coming Soon)</h3>
-            <p>Pioneering an AI-driven cybersecurity assistant that leverages custom-trained Large Language Models to revolutionize APT detection and incident response. This project aims to provide real-time threat analysis, automated report generation, and adaptive defense strategies. Stay tuned for the upcoming paper and code repository!</p>
-        </div>
-        <div class="project">
-            <h3>HebAugment</h3>
-            <p>A novel data augmentation methodology for improving sentiment analysis in Hebrew, addressing the challenge of data scarcity in under-resourced languages. HebAugment combines translation and generation models to expand and diversify training datasets, significantly enhancing sentiment classification performance even with limited real data.</p>
-            <p><a href="https://github.com/amaruy/HebAugment/blob/d8c7f0b6195d77c9694825a4715d1152cf3d3967/HebAugment.pdf" target="_blank">Read the paper</a> | <a href="https://github.com/amaruy/HebAugment.git" target="_blank">View the repository</a></p>
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="project-grid">
+                <div class="project-card animate__animated animate__fadeIn">
+                    <h3>RAPID</h3>
+                    <p>A novel deep learning framework for detecting and investigating Advanced Persistent Threats (APTs). Uses context-aware anomaly detection and alert tracing to adapt to changing system behavior.</p>
+                    <div class="links">
+                        <a href="https://arxiv.org/pdf/2406.05362" target="_blank">Paper</a>
+                        <a href="https://github.com/amaruy/rapid" target="_blank">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-card animate__animated animate__fadeIn" style="animation-delay: 0.2s">
+                    <h3>LLM-based Cybersecurity Agent</h3>
+                    <p>Pioneering an AI-driven cybersecurity assistant leveraging custom-trained Large Language Models to revolutionize APT detection and incident response.</p>
+                    <div class="links">
+                        <a href="#">Coming Soon</a>
+                    </div>
+                </div>
+
+                <div class="project-card animate__animated animate__fadeIn" style="animation-delay: 0.4s">
+                    <h3>HebAugment</h3>
+                    <p>A novel data augmentation methodology for improving sentiment analysis in Hebrew, addressing the challenge of data scarcity in under-resourced languages.</p>
+                    <div class="links">
+                        <a href="https://github.com/amaruy/HebAugment" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="contact" class="container">
-        <h2>Contact Me</h2>
-        <form
-            class="contact-form"
-            action="https://formspree.io/f/mwpezpyl"
-            method="POST"
-        >
-            <input type="text" name="name" placeholder="Name" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <textarea name="message" placeholder="Message" required></textarea>
-            <button type="submit">Send</button>
+    <section id="contact" class="container" style="padding: 80px 0">
+        <form class="contact-form" action="https://formspree.io/f/mwpezpyl" method="POST" style="max-width: 600px; margin: 0 auto;">
+            <h2 style="margin-bottom: 30px">Get in Touch</h2>
+            <div style="margin-bottom: 20px">
+                <input type="text" name="name" placeholder="Name" required style="width: 100%; padding: 12px; background: var(--card-bg); border: 1px solid #333; border-radius: 5px; color: white; margin-bottom: 15px">
+                <input type="email" name="email" placeholder="Email" required style="width: 100%; padding: 12px; background: var(--card-bg); border: 1px solid #333; border-radius: 5px; color: white; margin-bottom: 15px">
+                <textarea name="message" placeholder="Message" required style="width: 100%; padding: 12px; background: var(--card-bg); border: 1px solid #333; border-radius: 5px; color: white; min-height: 150px"></textarea>
+            </div>
+            <button type="submit" style="background: var(--primary-color); color: white; padding: 12px 30px; border: none; border-radius: 5px; cursor: pointer; font-size: 1rem; transition: opacity 0.3s ease">Send Message</button>
         </form>
     </section>
 </body>
